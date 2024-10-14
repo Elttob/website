@@ -1,0 +1,202 @@
+@media screen and (min-width: 75rem) {
+	body {
+		font-size: 1.5rem;
+	}
+}
+
+@media screen and (min-width: 120rem) {
+	body {
+		font-size: 2rem;
+	}
+}
+
+:root {
+	--fg-inverse: color-mix(in srgb, var(--bg) 80%, transparent);
+}
+
+body > * {
+	width: 100vw;
+	padding: 2em max(1em, calc(50vw - var(--clamped-width) / 2));
+}
+
+body > * {
+	background: var(--section-bg);
+	color: var(--section-fg);
+	--section-bg: var(--bg);
+	--section-fg: var(--fg);
+}
+
+body > *:nth-child(2) {
+	--section-bg: var(--vivid-1);
+	--section-fg: var(--fg-inverse);
+}
+
+body > *:nth-child(3) {
+	--section-bg: var(--vivid-2);
+	--section-fg: var(--fg-inverse);
+}
+
+body > *:nth-child(4) {
+	--section-bg: var(--vivid-3);
+	--section-fg: var(--fg-inverse);
+}
+
+body > *:nth-child(5) {
+	--section-bg: var(--vivid-4);
+	--section-fg: var(--fg-inverse);
+}
+
+body > *:nth-child(6) {
+	--section-bg: var(--vivid-5);
+	--section-fg: var(--fg-inverse);
+}
+
+body > *:nth-child(7) {
+	--section-bg: var(--vivid-6);
+	--section-fg: var(--fg-inverse);
+}
+
+body > * a {
+	color: inherit;
+	font-weight: 700;
+	text-decoration-thickness: 0.1em;
+	padding: 0 0.5em;
+	margin: 0 -0.5em;
+	border-radius: 1em;
+	transition: 
+		color 0.2s ease,
+		background-color 0.2s ease,
+		text-decoration-color 0.2s ease;
+}
+
+body > * a:hover {
+	background: var(--section-fg);
+	color: var(--section-bg);
+	text-decoration-color: transparent;
+	transition: 
+		color 0s ease,
+		background-color 0s ease,
+		text-decoration-color 0s ease;
+}
+
+body > * > h2 {
+	margin-bottom: 1em;
+	text-wrap: balance;
+}
+
+body > header {
+	min-height: 90svh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	gap: 1em;
+
+	background: 
+		url(/assets/hero-logo.svg),
+		radial-gradient(ellipse 150% 100% at 50% 0%, transparent 0%, var(--bg) 100%),
+		url(/assets/hero-fasde.png);
+
+	background-size: 
+		90svh,
+		100% 100%,
+		100% 100%;
+	background-position:
+		top right,
+		center,
+		center;
+	background-repeat: no-repeat;
+}
+
+body > header > h1 {
+	color: color-mix(in srgb, var(--fg) 80%, transparent);
+	font-weight: 600;
+	text-wrap: balance;
+}
+
+body > header > h1 > em {
+	color: var(--fg);
+	font-style: normal;
+	font-weight: 700;
+}
+
+body > nav > ul {
+	display: block;
+	list-style: none;
+	column-width: 25em;
+	column-gap: 2em;
+}
+
+body > nav > ul > li {
+	break-inside: avoid;
+	margin-bottom: 1em;
+}
+
+body > nav > ul > li > h3 {
+	font-size: inherit;
+}
+
+body > nav > ul > li > p {
+	padding-left: 3em;
+}
+
+body > section {
+	display: grid;
+	grid-template:
+		"h" auto
+		"a" auto
+		"." 2em
+		"f" auto / 1fr;
+
+	overflow-x: hidden;
+}
+
+@media screen and (min-width: 50rem) {
+	body > section {
+		display: grid;
+		grid-template:
+			"f h" auto
+			"f ." 1fr
+			"f a" auto
+			"f ." 1fr / 1fr 1fr;
+		--figure-offset: -2em;
+	}
+	
+	body > section:nth-child(even) {
+		grid-template:
+			"h f" auto
+			". f" 1fr
+			"a f" auto
+			". f" 1fr / 1fr 1fr;
+
+		--figure-offset: 2em;
+	}	
+}
+
+body > section > h2 {
+	grid-area: h;
+	margin: 0;
+}
+
+body > section > figure {
+	grid-area: f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+body > section > figure > img {
+	width: 100%;
+	aspect-ratio: 16/9;
+	border-radius: 1em;
+	translate: var(--figure-offset) 0;
+	/* box-shadow: 0 0 1em #0004; */
+}
+
+body > section > article {
+	grid-area: a;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1em;
+}

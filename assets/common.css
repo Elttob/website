@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--bg: #000;
+	--fg: #eee;
+	--vivid-4: rgb(235, 94, 118);
+	--vivid-5: rgb(218, 198, 20);
+	--vivid-6: rgb(138, 207, 58);
+	--vivid-1: rgb(0, 212, 142);
+	--vivid-2: rgb(35, 184, 221);
+	--vivid-3: rgb(109, 131, 228);
+
+	--font: 1rem/1.5 "Plus Jakarta Sans", system-ui;
+
+	--max-width: 120rem;
+	--clamped-width: min(100vw, var(--max-width));
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+
+	font: var(--font);
+	text-wrap: pretty;
+}
