@@ -85,7 +85,7 @@ body > * > h2 {
 }
 
 body > header {
-	min-height: 90svh;
+	min-height: min(90svh, 60rem);
 
 	display: flex;
 	flex-direction: column;

@@ -27,3 +27,74 @@ body {
 	font: var(--font);
 	text-wrap: pretty;
 }
+
+body > footer {
+	color: #aaa;
+	line-height: 150%;
+	display: grid;
+	grid-template:
+		"logo       links1 links2" auto
+		"trademarks links1 links2" auto
+		"copyright  links1 links2" auto / 2fr 1fr 1fr;
+	gap: 1rem;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+
+	@media (width < 60rem) {
+		grid-template:
+			"logo       links1" auto
+			"trademarks links1" auto
+			"copyright  links2" auto / 1fr 1fr;
+	}
+	@media (width < 30rem) {
+		grid-template:
+			"logo      " auto
+			"links1    " auto
+			"links2      " auto
+			"trademarks" auto
+			"copyright " auto / 1fr;
+	}
+
+	& > * {
+		font-size: 0.8em;
+	}
+
+	& > img {
+		grid-area: logo;
+		height: 3rem;
+	}
+	& > p.trademarks {
+		grid-area: trademarks;
+		text-wrap: balance;
+	}
+	& > p.copyright {
+		grid-area: copyright;
+		text-wrap: balance;
+	}
+	& > nav.links1 {
+		grid-area: links1;
+	}
+	& > nav.links2 {
+		grid-area: links2;
+	}
+	
+	& h2 {
+		font-size: 1.25em;
+		letter-spacing: 0;
+		line-height: 150%;
+		margin-bottom: 1rem;
+		animation: none;
+		background: none;
+		color: var(--fg);
+
+		&::after {
+			content: none;
+		}
+	}
+	
+	& > nav {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+	}
+}
